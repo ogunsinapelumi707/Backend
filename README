@@ -1,0 +1,25 @@
+- Real Estate Backend Code
+
+A backend application for a real estate platform, providing RESTful APIs for user authentication and other features.
+
+*Installation*
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <project-directory>
+   . code        (to open in vs code)
+
+2. Install dependencies:
+    ```bash
+   npm install
+
+3.Start the server
+  npm start
+Access it at http://localhost:8800.
+
+Routes
+Authentication: /api/auth
+Users: /api/users
+Posts: /api/posts
+Testing: /api/test
