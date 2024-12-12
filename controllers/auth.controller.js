@@ -5,6 +5,18 @@ export const register = async (req, res) =>{
     try {
     console.log('register routes.....')
     const {username, email, password} = req.body
+    
+    // checking if the user already exist or not 
+    const existingUser = await prisma.user.findUnique({
+        where: { email }
+    });
+    
+    if (existingUser) {
+        return res.status(400).json({ message: "User with this email already exists!" });
+    }
+    
+    // if user dont exist then >
+
     var salt = bcrypt.genSaltSync(10);
     const hashedPassword =  bcrypt.hashSync(password, salt)
     const newUser = await prisma.user.create({
