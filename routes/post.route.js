@@ -7,7 +7,7 @@ postRouter.get('/', getPosts)
 postRouter.get('/:id', getPost)
 postRouter.post('/', verifyToken, addPost)
 postRouter.put('/', verifyToken, updatePost)
-postRouter.delete('/:id', verifyToken, deletePost)  
+postRouter.delete('/:id', verifyToken, deletePost)   
 
 
 
