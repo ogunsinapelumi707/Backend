@@ -27,10 +27,10 @@ app.use("/api/test", testRouter);
 
 
 const __dirname = path.resolve(); 
-app.use(express.static(path.join(__dirname, "client", "dist"))); 
+app.use(express.static(path.join(__dirname, "real-estate-client", "dist"))); 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "real-estate-client", "dist", "index.html"));
 });
 
 app.listen(PORT, () => {
