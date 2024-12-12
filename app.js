@@ -10,7 +10,7 @@ import chatRouter from "./routes/chat.route.js";
 import messageRouter from "./routes/message.route.js";
 
 const app = express();
-const PORT = 8800;
+const PORT = process.env.PORT || 8800;
 
 
 console.log("Testing...");
