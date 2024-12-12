@@ -7,7 +7,7 @@ export const register = async (req, res) =>{
     const {username, email, password} = req.body
 
 
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
         where:{
             OR:[
                 {username},
