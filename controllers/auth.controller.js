@@ -5,6 +5,17 @@ export const register = async (req, res) =>{
     try {
     console.log('register routes.....')
     const {username, email, password} = req.body
+
+
+    const user = await prisma.user.findUnique({
+        where:{username} 
+    })
+
+    if(user) {
+        res.status(500).json({message: "Username Already exist!"})
+    }
+
+
     var salt = bcrypt.genSaltSync(10);
     const hashedPassword =  bcrypt.hashSync(password, salt)
     const newUser = await prisma.user.create({
@@ -33,7 +44,7 @@ export const login = async (req, res) =>{
         })
 
         if(!user) {
-            res.status(401).json({message: "Invalid Credentials!"})
+            res.status(500).json({message: "Invalid Credentials!"})
         }
             
        
