@@ -26,12 +26,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/test", testRouter);
 
 
-const __dirname = path.resolve(); 
+/* const __dirname = path.resolve(); 
 app.use(express.static(path.join(__dirname, "client", "dist"))); 
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
+}); */
 
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
