@@ -68,10 +68,12 @@ export const login = async (req, res) =>{
         })
         const {password: userPassword, ...userInfo} = user
         res.cookie("token", token, {
-            httpOnly: true,
-            maxAge: age
-           // secure: true
-        }).status(200).json({ userInfo});
+    httpOnly: true,
+    maxAge: age,
+    secure: true, // Ensure HTTPS is used
+    sameSite: "None" // Required for cross-origin requests
+}).status(200).json({ userInfo });
+
 
     } catch (error) {
         console.log(error)
